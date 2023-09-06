@@ -30,8 +30,8 @@ $(document).ready(function () {
         classNameButton_CDHA = $("#luu_cdha").attr("class");
         classNameButton_TTPT = $("#luu_ttpt").attr("class");
         classNameButton_XN = $("#luu_xn").attr("class");
-        toggleButtons(classNameButton_CDHA, classNameButton_TTPT, classNameButton_XN);
-        // trang khám bệnh
+        toggleButtons(classNameButton_CDHA, classNameButton_XN, classNameButton_TTPT);
+        // trang khám bệnh, tắt các btn dựa theo btn cls
         if (CURRENT_TAB_NAME == 'khambenhngoaitru') {
             classNameButton_CLS = $("#cls").attr("class");
             toggleButtons_byButtonCLS(classNameButton_CLS);
@@ -142,6 +142,12 @@ $(document).ready(function () {
     })
     // lưu, in và đóng
     // ================================================================================================================================================
+    /*
+        Mô tả: 
+            1. Thực hiện hành động click vào btn save, 
+            2. Lắng nghe class của btn save 
+            3. Thay đổi thì bắt đầu nhấn in và nhấn đóng
+    */
     $(document).on("click", "#mod_xn_save_close", function () {
         $("#luu_xn").click();
         let checkClass = setInterval(function () {
