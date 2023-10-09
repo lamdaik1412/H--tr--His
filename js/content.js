@@ -30,6 +30,7 @@ $(document).ready(function () {
         classNameButton_CDHA = $("#luu_cdha").attr("class");
         classNameButton_TTPT = $("#luu_ttpt").attr("class");
         classNameButton_XN = $("#luu_xn").attr("class");
+        console.log({ classNameButton_CDHA, classNameButton_XN, classNameButton_TTPT });
         toggleButtons(classNameButton_CDHA, classNameButton_XN, classNameButton_TTPT);
         // trang khám bệnh, tắt các btn dựa theo btn cls
         if (CURRENT_TAB_NAME == 'khambenhngoaitru') {
@@ -295,9 +296,9 @@ $(document).ready(function () {
             $("#mod_xn_save_close").addClass("button_shadow");
         }
         if (classNameButton_TTPT == 'button_disabled') {
-            $("#mod_xn_save_close").attr("disabled", "disabled");
-            $("#mod_xn_save_close").addClass("button_disabled");
-            $("#mod_xn_save_close").removeClass("button_shadow");
+            $("#mod_ttpt_save_close").attr("disabled", "disabled");
+            $("#mod_ttpt_save_close").addClass("button_disabled");
+            $("#mod_ttpt_save_close").removeClass("button_shadow");
         } else {
             $("#mod_ttpt_save_close").attr("disabled", false);
             $("#mod_ttpt_save_close").removeClass("button_disabled");

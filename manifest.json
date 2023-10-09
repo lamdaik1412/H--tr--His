@@ -1,6 +1,6 @@
 {
     "name": "Hỗ trợ phím tắt Phòng Khám Đa Khoa Sài Gòn Vạn Lộc",
-    "version": "1.0",
+    "version": "1.0.231009",
     "description": "Phiên bản 1.0: Hỗ trợ đưa phím Chỉ định CLS ra ngoài.",
     "manifest_version": 3,
     "icons": {
@@ -8,13 +8,6 @@
         "48": "img/icon48.png",
         "128": "img/icon128.png"
     },
-    "permissions": [
-        "tabs",
-        "contextMenus",
-        "storage", "activeTab", "scripting",
-        "management"
-    ],
-
     "content_scripts": [
         {
             "matches": [
