@@ -14,6 +14,8 @@ let ID_TTPT_TT = ['86145341', 'TT'];
 let ID_BTN_CLS = 'bt_cls';
 let CURRENT_TAB_NAME = 'tiepnhanbenhnhan';
 let FLAG = 0;
+let INTERVAL_CHECK_CLASS_CDHA, INTERVAL_CHECK_CLASS_XN, INTERVAL_CHECK_CLASS_TTPT = null
+
 if (window.location.href.indexOf("khambenhngoaitru") !== -1) {
     CURRENT_TAB_NAME = 'khambenhngoaitru';
     ID_BTN_CLS = 'cls';
@@ -30,7 +32,7 @@ $(document).ready(function () {
         classNameButton_CDHA = $("#luu_cdha").attr("class");
         classNameButton_TTPT = $("#luu_ttpt").attr("class");
         classNameButton_XN = $("#luu_xn").attr("class");
-        console.log({ classNameButton_CDHA, classNameButton_XN, classNameButton_TTPT });
+        console.log({ classNameButton_CDHA, classNameButton_XN, classNameButton_TTPT, INTERVAL_CHECK_CLASS_CDHA, INTERVAL_CHECK_CLASS_XN, INTERVAL_CHECK_CLASS_TTPT });
         toggleButtons(classNameButton_CDHA, classNameButton_XN, classNameButton_TTPT);
         // trang khám bệnh, tắt các btn dựa theo btn cls
         if (CURRENT_TAB_NAME == 'khambenhngoaitru') {
@@ -42,14 +44,14 @@ $(document).ready(function () {
     // MutationObserver
     // ================================================================================================================================================
     const mod_sieuam_btn = document.getElementById("luu_cdha");
-    const observer = new MutationObserver(function (mutationsList) {
-        for (const mutation of mutationsList) {
-            if (mutation.target === mod_sieuam_btn && FLAG == 1) {
-                $("#luu_cdha").click();
-            }
-        }
-    });
-    observer.observe(mod_sieuam_btn, { attributes: true, childList: true, subtree: true });
+    // const observer = new MutationObserver(function (mutationsList) {
+    //     for (const mutation of mutationsList) {
+    //         if (mutation.target === mod_sieuam_btn && FLAG == 1) {
+    //             $("#luu_cdha").click();
+    //         }
+    //     }
+    // });
+    // observer.observe(mod_sieuam_btn, { attributes: true, childList: true, subtree: true });
 
     $(document).on("click", "#luu_cdha", function () {
         FLAG = 0;
@@ -151,33 +153,42 @@ $(document).ready(function () {
     */
     $(document).on("click", "#mod_xn_save_close", function () {
         $("#luu_xn").click();
-        let checkClass = setInterval(function () {
+        INTERVAL_CHECK_CLASS_XN = setInterval(function () {
             if (classNameButton_XN == 'button_disabled') {
                 $("#phieu_xn").click();
                 $("#dong_xn").click();
-                clearInterval(checkClass);
+                clearInterval(INTERVAL_CHECK_CLASS_XN);
             }
         }, MS);
-    })
+    }) 
     $(document).on("click", "#mod_cdha_save_close", function () {
         $("#luu_cdha").click();
-        let checkClass = setInterval(function () {
+        INTERVAL_CHECK_CLASS_CDHA = setInterval(function () {
             if (classNameButton_CDHA == 'button_disabled') {
                 $("#phieu_cdha").click();
                 $("#dong_cdha").click();
-                clearInterval(checkClass);
+                clearInterval(INTERVAL_CHECK_CLASS_CDHA);
             }
         }, MS);
     })
     $(document).on("click", "#mod_ttpt_save_close", function () {
         $("#luu_ttpt").click();
-        let checkClass = setInterval(function () {
+        INTERVAL_CHECK_CLASS_TTPT = setInterval(function () {
             if (classNameButton_TTPT == 'button_disabled') {
                 $("#phieu_ttpt").click();
                 $("#dong_ttpt").click();
-                clearInterval(checkClass);
+                clearInterval(INTERVAL_CHECK_CLASS_TTPT);
             }
         }, MS);
+    })
+    $(document).on("click", "#xoa_cdha", function () {
+        clearInterval(INTERVAL_CHECK_CLASS_CDHA);
+    })
+    $(document).on("click", "#xoa_xn", function () {
+        clearInterval(INTERVAL_CHECK_CLASS_XN);
+    })
+    $(document).on("click", "#xoa_ttpt", function () {
+        clearInterval(INTERVAL_CHECK_CLASS_TTPT);
     })
     // function
     // ================================================================================================================================================

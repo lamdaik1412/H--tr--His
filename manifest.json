@@ -1,7 +1,7 @@
 {
-    "name": "Hỗ trợ phím tắt Phòng Khám Đa Khoa Sài Gòn Vạn Lộc",
-    "version": "1.0.231009",
-    "description": "Phiên bản 1.0: Hỗ trợ đưa phím Chỉ định CLS ra ngoài.",
+    "name": "Tool rút gọn thao tác - PKĐK Sài Gòn Vạn Lộc",
+    "version": "1.23.1009",
+    "description": "Hỗ trợ đưa các phím chỉ định CLS ra ngoài màn hình.",
     "manifest_version": 3,
     "icons": {
         "16": "img/icon16.png",
@@ -22,7 +22,6 @@
                 "js/libs/jquery.js",
                 "js/content.js"
             ]
-
         }
     ]
 }
